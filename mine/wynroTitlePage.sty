@@ -1,0 +1,76 @@
+%% This package is HEAVILY inspired by the examples in
+%% https://en.wikibooks.org/wiki/LaTeX/Title_Creation
+\ProvidesPackage{wynroTitlePage}[]
+\RequirePackage{graphicx}
+\RequirePackage{lmodern}
+\RequirePackage{xcolor}
+
+\newcommand*{\logo}[1]{\gdef\@logo{#1}}
+\newcommand*{\@logo}{example-image-16x9}
+
+\newcommand*{\subject}[1]{\gdef\@subject{#1}}
+\newcommand*{\@subject}{Subject (UNSET)}
+
+\renewcommand*{\title}[1]{\gdef\@title{#1}}
+\renewcommand*{\@title}{Project title (UNSET)}
+
+\renewcommand*{\author}[1]{\gdef\@author{#1}}
+\renewcommand*{\@author}{Project author (UNSET)}
+
+\newcommand*{\supervisormsg}[1]{\gdef\@supervisormsg{#1}}
+\newcommand*{\@supervisormsg}{Supervisado por:}
+
+\newcommand*{\supervisor}[1]{\gdef\@supervisor{#1}}
+\newcommand*{\@supervisor}{}
+
+\newcommand*{\nodate}{\gdef\@adddate{no}}
+\newcommand*{\@adddate}{}
+
+\renewcommand*{\maketitle}{%
+  \begin{titlepage}
+    \centering
+    \includegraphics[width=0.75\textwidth]{\@logo}\par
+    \vspace*{3cm}
+    {\scshape\Large\@subject\par}
+    \vspace*{2cm}
+    {\huge\bfseries\@title\unskip\strut\par}
+    \vspace*{2cm}
+    {\Large\itshape\@author\unskip\strut\par}
+    \vfill
+    \ifx\@supervisor\empty
+    \else
+    \@supervisormsg\par
+    \@supervisor\par            %\unskip\strut
+    \textcolor{white}{Dr. Emmett \textsc{Doc} Lathrop Brown}\par
+    \vspace{4cm}
+    \fi
+    \ifx\@adddate\empty
+    {\large\@date\par}
+    \fi
+  \end{titlepage}
+}
+
+\newcommand*{\titlesmallvspace}[1]{\gdef\@titlesmallvspace{#1}}
+\newcommand*{\@titlesmallvspace}{7cm}
+
+%% TODO: Implement
+%% \newcommand*{\titlesmallshowlogo}[1]{\gdef\@titlesmallshowlogo{yes}}
+%% \newcommand*{\@titlesmallshowlogo}{no}
+
+\newcommand*{\maketitlesmall}{
+  {
+    \raggedleft
+    \vspace*{\@titlesmallvspace}
+    {\scshape\Large\@subject\par}
+    \vspace*{0.2cm}
+    {\huge\bfseries\@title\unskip\strut\par}
+    \vspace*{0.2cm}
+    {\Large\itshape\@author\unskip\strut\par}
+    \vspace*{0.2cm}
+    \hrulefill
+    %% \noindent\makebox[\linewidth]
+    %% {\rule{\paperwidth}{0.4pt}}
+  }
+}
+\endinput
+

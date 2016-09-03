@@ -1,0 +1,18 @@
+\newcommand{\leftstack}[1]{%
+  {\begin{tabular}{l} #1\end{tabular}}}
+
+\newcommand{\rightstack}[1]{%
+  {\begin{tabular}{r} #1\end{tabular}}}
+
+\newcommand{\centerstack}[1]{%
+  {\begin{tabular}{c} #1\end{tabular}}}
+
+\newcommand*{\blankpage}[1]{%
+  \vspace*{\fill}
+  \begin{center} \textit{#1} \end{center}
+  \vspace{\fill}
+  \clearpage}
+
+\newcommand*{\iref}[2]{\hyperref[#1]{#2~\ref*{#1}}}
+
+\newcommand*{\firef}[3]{\hyperref[#1]{#2\ref*{#1} #3}}
