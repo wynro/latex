@@ -1,0 +1,3 @@
+[submodule "europecv2013"]
+	path = europecv2013
+	url = git@github.com:leinardi/europecv2013.git
