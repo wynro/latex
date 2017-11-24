@@ -29,7 +29,10 @@
 \renewcommand*{\maketitle}{%
   \begin{titlepage}
     \centering
+    \if\@logo\empty
+    \else
     \includegraphics[width=0.75\textwidth]{\@logo}\par
+    \fi
     \vspace*{3cm}
     {\scshape\Large\@subject\par}
     \vspace*{2cm}
